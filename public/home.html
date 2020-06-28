@@ -19,9 +19,11 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="jumbotron">
+                <div class="jumbotron" style="background: rgb(207,225,231);
+                background: linear-gradient(6deg, rgba(207,225,231,1) 35%, rgba(218,237,255,1) 51%, rgba(146,197,245,1) 65%);">
                     <h1 class="display-4">Local Population Attributes</h1>
                         <hr class="my-4">
+                        <p>Click on a location on the map to see commuter data.</p>
                 </div>
             </div>
         </div>
@@ -31,12 +33,25 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Commuter Population Attributes</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
             <div id="container" style="width:100%; height:400px;"></div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
     <!-- Script -->
     <script src="./js/map.js"></script>
     <script src="./js/chart.js"></script>

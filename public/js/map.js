@@ -37,3 +37,9 @@ map.on("load", (function(){
         }
     });  
 }));
+map.on('click', function(e) {
+    // The event object (e) contains information like the
+    // coordinates of the point on the map that was clicked.
+    console.log('A click event has occurred at ' + e.lngLat);
+    $("#myModal").modal("toggle");
+    });

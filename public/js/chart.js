@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'bar'
         },
         title: {
-            text: 'Fruit Consumption'
+            text: 'Commuter Population Attributes'
         },
         xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+            categories: ['Drive-Alone', 'Drive-Carpool', 'Public Transit', 'Walk']
         },
         yAxis: {
             title: {
-                text: 'Fruit eaten'
+                text: 'Population'
             }
         },
         series: [{
