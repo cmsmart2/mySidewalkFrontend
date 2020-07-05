@@ -1,0 +1,23 @@
+{
+  "name": "my_sidewalk_frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmsmart2/mySidewalkFrontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmsmart2/mySidewalkFrontend/issues"
+  },
+  "homepage": "https://github.com/cmsmart2/mySidewalkFrontend#readme",
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}

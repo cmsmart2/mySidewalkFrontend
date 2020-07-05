@@ -1,12 +1,13 @@
+//Leaving access token public for simplicity but have restricted URL access so you will need to go to Mapbox for your own token
 mapboxgl.accessToken ='pk.eyJ1IjoiY21zbWFydDIiLCJhIjoiY2tjOWc0bWNyMDltajJ4b3k3NWFkcG91ZCJ9.GYrE44S67losP_k-ZaZohA';
+//set up default map
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
     center: [-94.5786, 39.0997], // starting position [lng, lat]
     zoom: 9 // starting zoom
 });
-
-
+//function to load the map and add the layers from the JSON objects
 map.on("load", (function(){
     map.addSource('tracts', {
         type: 'geojson',
@@ -37,18 +38,20 @@ map.on("load", (function(){
         }
     });  
 }));
-map.on('click', 'neighbor', function(e) {
-    // The event object (e) contains information like the
-    // coordinates of the point on the map that was clicked.
-    console.log('A click event has occurred at ' + e.lngLat);
-    console.log(e.features[0])
-    let drive =e.features[0].properties["pop-commute-drive_alone"]
-    let carpool = e.features[0].properties["pop-commute-drive_carpool"]
-    let public = e.features[0].properties["pop-commute-public_transit"]
-    let walk = e.features[0].properties["pop-commute-walk"]
-    let title = e.features[0].properties["shid"]
-
-
+//on click function that toggles the modal and displays the neighborhood commute information 
+map.on('click',  function(e) {
+    let layers = map.queryRenderedFeatures(e.point, { layers: ['neighbor','tract'] });
+    console.log(layers)
+    let neighborDrive =layers[0].properties["pop-commute-drive_alone"]
+    let neighborCarpool = layers[0].properties["pop-commute-drive_carpool"]
+    let neighborPublic = layers[0].properties["pop-commute-public_transit"]
+    let neighborWalk = layers[0].properties["pop-commute-walk"]
+    let title = layers[0].properties["shid"]
+    let tractDrive =layers[1].properties["pop-commute-drive_alone"]
+    let tractCarpool = layers[1].properties["pop-commute-drive_carpool"]
+    let tractPublic = layers[1].properties["pop-commute-public_transit"]
+    let tractWalk = layers[1].properties["pop-commute-walk"]
+    //build the bar chart
     var myChart = Highcharts.chart('container', {
         chart: {
             type: 'bar'
@@ -66,9 +69,14 @@ map.on('click', 'neighbor', function(e) {
         },
         series: [{
             name: 'Neighboorhoods',
-            data: [drive, carpool, public, walk]
+            data: [neighborDrive, neighborCarpool, neighborPublic, neighborWalk]
+        }, {
+            name: 'Tracts',
+            data: [tractDrive, tractCarpool, tractPublic, tractWalk]
         }]
     });
-    
+    //toggle the modal
     $("#myModal").modal("toggle");
     });
+    //exporting map to use in map.test.js
+    // module.exports = map;
