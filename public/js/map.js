@@ -1,4 +1,4 @@
-mapboxgl.accessToken = 'pk.eyJ1IjoiY21zbWFydDIiLCJhIjoiY2tieWQyZGd3MDE4ZTJ4bXhvM2FsamN2OSJ9.u3AtY3ut632MTKYp9d-izw';
+mapboxgl.accessToken ='pk.eyJ1IjoiY21zbWFydDIiLCJhIjoiY2tjOWc0bWNyMDltajJ4b3k3NWFkcG91ZCJ9.GYrE44S67losP_k-ZaZohA';
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
@@ -37,9 +37,38 @@ map.on("load", (function(){
         }
     });  
 }));
-map.on('click', function(e) {
+map.on('click', 'neighbor', function(e) {
     // The event object (e) contains information like the
     // coordinates of the point on the map that was clicked.
     console.log('A click event has occurred at ' + e.lngLat);
+    console.log(e.features[0])
+    let drive =e.features[0].properties["pop-commute-drive_alone"]
+    let carpool = e.features[0].properties["pop-commute-drive_carpool"]
+    let public = e.features[0].properties["pop-commute-public_transit"]
+    let walk = e.features[0].properties["pop-commute-walk"]
+    let title = e.features[0].properties["shid"]
+
+
+    var myChart = Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: title.split("neighborhood:")[1].replace(/_/g, " ")
+        },
+        xAxis: {
+            categories: ['Drive-Alone', 'Drive-Carpool', 'Public Transit', 'Walk']
+        },
+        yAxis: {
+            title: {
+                text: 'Population'
+            }
+        },
+        series: [{
+            name: 'Neighboorhoods',
+            data: [drive, carpool, public, walk]
+        }]
+    });
+    
     $("#myModal").modal("toggle");
     });
