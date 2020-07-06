@@ -7,10 +7,7 @@ created by Cera Smart
 Follow the link to view a demo.
 https://drive.google.com/file/d/1rnVBpb4ldJqPUsWVTyYMDW6sVT0mYh8r/view
  
-mySidewalk Start
-https://cmsmart2.github.io/mySidewalkFrontend/
-
-Simply go to the GitHub Pages link above. If downloading to run you will need a Mapbox access token and to install the npm packages. 
+To run locally you will need to have a Mapbox access token. You will also need to run npm i to install the node packages. 
 
 Where Users Can Get Help with This Project Questions? Contact Cera Smart at cera_smart@yahoo.com
 
