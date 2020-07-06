@@ -4,8 +4,10 @@ For this coding challenge I used Mapbox GL JS and Hightcharts to display data pr
 
 created by Cera Smart
 
+Follow the link to view a demo.
+https://drive.google.com/file/d/1rnVBpb4ldJqPUsWVTyYMDW6sVT0mYh8r/view
+ 
 mySidewalk Start
-
 https://cmsmart2.github.io/mySidewalkFrontend/
 
 Simply go to the GitHub Pages link above. If downloading to run you will need a Mapbox access token and to install the npm packages. 
