@@ -38,10 +38,9 @@ map.on("load", (function(){
         }
     });  
 }));
-//on click function that toggles the modal and displays the neighborhood commute information 
+//on click function that toggles the modal and displays the neighborhood and tract commute information 
 map.on('click',  function(e) {
     let layers = map.queryRenderedFeatures(e.point, { layers: ['neighbor','tract'] });
-    console.log(layers)
     let neighborDrive =layers[0].properties["pop-commute-drive_alone"]
     let neighborCarpool = layers[0].properties["pop-commute-drive_carpool"]
     let neighborPublic = layers[0].properties["pop-commute-public_transit"]
@@ -52,7 +51,7 @@ map.on('click',  function(e) {
     let tractPublic = layers[1].properties["pop-commute-public_transit"]
     let tractWalk = layers[1].properties["pop-commute-walk"]
     //build the bar chart
-    var myChart = Highcharts.chart('container', {
+    const myChart = Highcharts.chart('container', {
         chart: {
             type: 'bar'
         },
@@ -79,4 +78,4 @@ map.on('click',  function(e) {
     $("#myModal").modal("toggle");
     });
     //exporting map to use in map.test.js
-    // module.exports = map;
+    module.exports = map;
