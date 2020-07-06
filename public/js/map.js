@@ -77,5 +77,5 @@ map.on('click',  function(e) {
     //toggle the modal
     $("#myModal").modal("toggle");
     });
-    //exporting map to use in map.test.js
-    // module.exports = map;
+    //exporting map to use in map.test.js (commented out as the testing isn't working)
+    // module.exports = map; 
