@@ -78,4 +78,4 @@ map.on('click',  function(e) {
     $("#myModal").modal("toggle");
     });
     //exporting map to use in map.test.js
-    module.exports = map;
+    // module.exports = map;
