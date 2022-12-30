@@ -19,6 +19,6 @@
   "homepage": "https://github.com/cmsmart2/mySidewalkFrontend#readme",
   "dependencies": {
     "chai": "^4.2.0",
-    "mocha": "^8.0.1"
+    "mocha": "^8.4.0"
   }
 }
